@@ -12,7 +12,8 @@ class LexerTest {
         assertEquals(listOf(
             Token.Num(123.0),
             Token.Add,
-            Token.Num(345.0)
+            Token.Num(345.0),
+            Token.EOL
         ), tokens)
     }
 
@@ -33,7 +34,8 @@ class LexerTest {
             Token.Num(4.0),
             Token.Add,
             Token.Num(2.0),
-            Token.RParen
+            Token.RParen,
+            Token.EOL
         ), tokens)
     }
 }

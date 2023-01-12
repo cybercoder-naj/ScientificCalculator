@@ -1,4 +1,4 @@
-name: Test Cases Passing
+name: Test Cases
 
 on: [push]
 
