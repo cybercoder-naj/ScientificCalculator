@@ -1,5 +1,7 @@
 package com.github.cybercodernaj.calculator.parser
 
+import java.lang.StringBuilder
+
 internal class Lexer(
     val function: String
 ) {
@@ -65,6 +67,15 @@ internal class Lexer(
                         }
 
                         tokens.add(Token.Num(numSb.joinToString(separator = "").toDouble()))
+                    } else if (currentChar.isLetter()) {
+                        val name = StringBuilder()
+
+                        while (currentChar != '\u0000' && currentChar.isLetter()) {
+                            name.append(currentChar)
+                            advance()
+                        }
+
+                        tokens.add(Token.Var(name.toString()))
                     } else if (currentChar.isWhitespace()) {
                         advance()
                         continue

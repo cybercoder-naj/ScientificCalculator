@@ -5,7 +5,7 @@ import com.github.cybercodernaj.calculator.parser.Parser
 object ScientificCalculator {
     fun solve(function: String, environment: Map<String, Double> = emptyMap()): Double {
         val parser = Parser(function)
-        return solve(environment, parser.parse())
+        return solve(environment + mapOf("pi" to Math.PI, "e" to Math.E), parser.parse())
     }
 
     private fun solve(environment: Map<String, Double>, function: Expression): Double {

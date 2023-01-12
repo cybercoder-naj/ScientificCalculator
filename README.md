@@ -18,13 +18,14 @@ This is an improvement to my previous repository, [ComplexCalculator](https://gi
    - [x] Subtraction.
    - [x] Multiplication.
    - [x] Division.
+   - [ ] Exponential.
    - [x] Unary Plus.
    - [x] Unary Minus.
    - [x] Order with Bracketing.
-   - [ ] Trigonometric functions.
-   - [ ] Logarithm function.
+   - [x] Trigonometric functions.
+   - [x] Logarithm function.
    - [ ] Absolute function.
- - [ ] Solve equations with variables.
+ - [x] Solve equations with variables.
  - [ ] Differentiate equations.
  
 ## Usage

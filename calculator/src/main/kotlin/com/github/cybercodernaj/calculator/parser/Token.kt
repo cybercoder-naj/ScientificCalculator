@@ -18,11 +18,26 @@ internal sealed class Token {
         return when (this) {
             Add -> UnaryOperator.Pos
             Sub -> UnaryOperator.Neg
-            else -> throw Exception()
+            is Var -> {
+               val (name) = this
+               when (name) {
+                   "sin" -> UnaryOperator.Sin
+                   "cos" -> UnaryOperator.Cos
+                   "tan" -> UnaryOperator.Tan
+                   "cot" -> UnaryOperator.Cot
+                   "sec" -> UnaryOperator.Sec
+                   "csc" -> UnaryOperator.Csc
+                   "log" -> UnaryOperator.Log
+                   else -> throw Exception("Internal error : this line cannot be reached")
+               }
+            }
+            else -> throw Exception("Internal error : this line cannot be reached")
         }
     }
 
     data class Num(val number: Double) : Token()
+
+    data class Var(val name: String) : Token()
 
     object LParen : Token()
 

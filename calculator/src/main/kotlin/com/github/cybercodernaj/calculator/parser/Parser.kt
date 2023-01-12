@@ -52,6 +52,29 @@ internal class Parser(function: String) {
                 return response.success(expr)
             }
 
+            is Token.Var -> {
+                val (name) = currentToken as Token.Var
+                when (name) {
+                    "sin", "cos", "tan", "cot", "sec", "csc", "log" -> {
+                        val token = currentToken
+                        advance()
+                        if (currentToken != Token.LParen)
+                            return response.failure(Exception("require parenthesis after $name"))
+
+                        val factor = response.register(factor())
+                        response.error?.let {
+                            return response
+                        }
+                        return response.success(Expression.UnaryApplication(token.toUnaryOperator(), factor!!))
+                    }
+                    else -> {
+                        val expr = Expression.Variable(name)
+                        advance()
+                        return response.success(expr)
+                    }
+                }
+            }
+
             is Token.LParen -> {
                 advance()
                 val contentExpr = response.register(expr())
