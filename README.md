@@ -1,5 +1,7 @@
 # Scientific Calculator
 
+[![Test Cases](https://github.com/cybercoder-naj/ScientificCalculator/actions/workflows/testApp.yaml/badge.svg?event=push)](https://github.com/cybercoder-naj/ScientificCalculator/actions/workflows/testApp.yaml)
+
 Solves mathematical equations from a string. 
 This is an improvement to my previous repository, [ComplexCalculator](https://github.com/cybercoder-naj/ComplexCalculator.git)
 
