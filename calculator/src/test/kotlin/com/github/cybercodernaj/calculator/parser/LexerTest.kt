@@ -38,4 +38,22 @@ class LexerTest {
             Token.EOL
         ), tokens)
     }
+
+    @Test fun makeTokens3() {
+        val lexer = Lexer("(4.5 * 2 + 1) / 2.5")
+        val tokens = lexer.makeTokens()
+
+        assertEquals(listOf(
+            Token.LParen,
+            Token.Num(4.5),
+            Token.Mul,
+            Token.Num(2.0),
+            Token.Add,
+            Token.Num(1.0),
+            Token.RParen,
+            Token.Div,
+            Token.Num(2.5),
+            Token.EOL
+        ), tokens)
+    }
 }

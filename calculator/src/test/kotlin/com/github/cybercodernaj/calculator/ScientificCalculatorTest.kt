@@ -28,4 +28,10 @@ class ScientificCalculatorTest {
 
         assertEquals(99.0, ans)
     }
+
+    @Test fun solve5() {
+        val ans = ScientificCalculator.solve("(4.5 * 2 + 1) / 2.5")
+
+        assertEquals(4.0, ans)
+    }
 }

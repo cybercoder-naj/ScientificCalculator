@@ -123,4 +123,23 @@ class ParserTest {
             Value(7.0)
         ), expression)
     }
+
+    @Test fun parse9() {
+        val parser = Parser("(4.5 * 2 + 1) / 2.5")
+        val expression = parser.parse()
+
+        assertEquals(BinaryApplication(
+            BinaryOperator.Div,
+            BinaryApplication(
+                BinaryOperator.Add,
+                BinaryApplication(
+                    BinaryOperator.Mul,
+                    Value(4.5),
+                    Value(2.0)
+                ),
+                Value(1.0)
+            ),
+            Value(2.5)
+        ), expression)
+    }
 }
