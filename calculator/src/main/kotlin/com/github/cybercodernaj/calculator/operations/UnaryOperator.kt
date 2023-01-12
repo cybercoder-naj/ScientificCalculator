@@ -3,6 +3,8 @@ package com.github.cybercodernaj.calculator.operations
 import kotlin.math.*
 
 internal sealed class UnaryOperator {
+    object Pos : UnaryOperator()
+
     object Neg : UnaryOperator()
 
     object Sin : UnaryOperator()
@@ -24,6 +26,7 @@ internal sealed class UnaryOperator {
 
     operator fun invoke(value: Double): Double {
         return when(this) {
+            Pos -> value
             Neg -> -value
             Sin -> sin(value)
             Cos -> cos(value)

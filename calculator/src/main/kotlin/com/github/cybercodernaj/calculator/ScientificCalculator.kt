@@ -2,19 +2,11 @@ package com.github.cybercodernaj.calculator
 
 import com.github.cybercodernaj.calculator.parser.Parser
 
-class ScientificCalculator private constructor(
-    internal val function: Expression
-) {
-
-    companion object {
-        fun parse(function: String): ScientificCalculator {
-            val expression = Parser.parse(function)
-            return ScientificCalculator(expression)
-        }
+object ScientificCalculator {
+    fun solve(function: String, environment: Map<String, Double> = emptyMap()): Double {
+        val parser = Parser(function)
+        return solve(environment, parser.parse())
     }
-
-    fun solve(environment: Map<String, Double> = emptyMap()) =
-        solve(environment, function)
 
     private fun solve(environment: Map<String, Double>, function: Expression): Double {
         return when (function) {
@@ -36,6 +28,4 @@ class ScientificCalculator private constructor(
             }
         }
     }
-
-
 }
